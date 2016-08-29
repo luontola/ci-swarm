@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  goserver:
+    image: gocd/gocd-server:16.7.0
+    environment:
+      MSG_TIME: "0"
+    ports:
+    - "8153:8153"
+    - "8154:8154"
+    #volumes:
+
+  goagent:
+    image: gocd/gocd-agent:16.7.0
+    environment:
+      GO_SERVER: goserver
